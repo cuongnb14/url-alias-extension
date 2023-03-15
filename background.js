@@ -1,4 +1,4 @@
-chrome.webNavigation.onErrorOccurred.addListener((details) => {
+chrome.webNavigation.onBeforeNavigate.addListener((details) => {
     let aliasName = details.url.split("///")[1];
 
     chrome.storage.sync.get(['alias'], (items) => {
