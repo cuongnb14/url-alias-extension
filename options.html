@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Url Alias Settings</title>
+    <link rel="stylesheet" href="libs/bootstrap.min.css">
+    <style>
+        #export-box {
+            display: none;
+            z-index: 1000;
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 20px;
+            background-color: #e3e3e3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="export-box">
+            <textarea id="export-data" cols="50" rows="10"></textarea>
+            <hr>
+            <button id="btn-close-box" type="button" class="btn btn-sm btn-info">Close</button>
+        </div>
+        <div class="float-right">
+            <button id="export" type="button" class="btn btn-sm btn-info">Export</button>
+            <button id="import" type="button" class="btn btn-sm btn-info">Import</button>
+        </div>
+        <h2 style="margin-top: 30px">Add url alias</h2>
+
+        <form>
+
+            <div class="form-group row">
+                <label for="aliasName" class="col-sm-2 col-form-label">Alias Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" id="aliasName" placeholder="Alias name">
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label for="aliasUrl" class="col-sm-2 col-form-label">Alias Url</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" id="aliasUrl" placeholder="Alias url">
+                </div>
+            </div>
+
+            <button id="save" type="button" class="btn btn-sm btn-primary">Add alias</button>
+        </form>
+
+        <hr />
+
+        <div id="pageRuleContainer">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Alias name</th>
+                        <th>Alias url</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                  
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script src="options.js"></script>
+</body>
+
+</html>

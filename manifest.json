@@ -1,0 +1,35 @@
+{
+	"name": "Url Alias",
+	"version": "3.0",
+	"manifest_version": 3,
+	"description": "Alias for url",
+	"icons": { 
+		"16": "icon/icon.png",
+		"48": "icon/icon.png",
+		"128": "icon/icon.png" 
+	},
+	"action": {
+		"default_icon": "icon/icon.png"
+	},
+	"options_page": "options.html",
+	"content_scripts": [
+		{
+			"matches" : [
+				"http://*/*",
+				"https://*/*"
+			],
+			"js": ["main.js"]
+		}
+	],
+	"background": { "service_worker": "background.js" },
+	"permissions": [
+	 	"clipboardWrite",
+		"activeTab",
+		"notifications",
+		"contextMenus",
+		"storage",
+		"scripting",
+		"tabs",
+		"webNavigation"
+	]
+}
