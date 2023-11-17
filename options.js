@@ -27,7 +27,10 @@ function drawAllTableRule(alias) {
     let tbody = $('#tableBody')
     tbody.html('')
 
-    for (const [aliasName, aliasUrl] of Object.entries(alias)) {
+    const entries = Object.entries(alias)
+    entries.sort((a, b) => a[0].localeCompare(b[0]));
+
+    for (const [aliasName, aliasUrl] of entries) {
         drawTableRule(aliasName, aliasUrl)
     }
 
@@ -58,9 +61,16 @@ function savePageRule() {
         alias: {}
     }, function (items) {
         let alias = items.alias
-        
-        alias[aliasName] = aliasUrl
 
+        if(aliasName in alias) {
+            const replace = confirm('This alias already used for url: ' + alias[aliasName] + '. Replace it?')
+            if (replace) {
+                alias[aliasName] = aliasUrl
+            }
+        } else {
+            alias[aliasName] = aliasUrl
+        }
+        
         chrome.storage.sync.set({
             alias: alias
         }, function () {
